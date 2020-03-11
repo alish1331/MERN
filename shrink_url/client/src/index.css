@@ -19,11 +19,6 @@ input.yellow-input:focus {
   box-shadow: 0 1px 0 0 #ffeb3b !important;
 }
 /* input field margins */
-.input-field {
+/* .input-field {
   margin: 5vh;
-}
-
-/* space between buttons */
-.grey.lighten-1 {
-  margin: 0 10px;
-}
+} */

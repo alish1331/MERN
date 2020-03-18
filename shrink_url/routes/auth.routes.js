@@ -11,8 +11,8 @@ const router = Router()
 router.post(
   '/register',
   [
-    check('email', 'Your email is wrong').isEmail(),
-    check('password', 'Password must not be shorter that 6 chars')
+    check('email', 'Email is not correct').isEmail(),
+    check('password', 'Password must have minimum 6 characters')
       .isLength({ min: 6 })
   ],
   async (req, res) => {
@@ -31,7 +31,7 @@ router.post(
       const candidate = await User.findOne({ email })
 
       if (candidate) {
-        return res.status(400).json({ message: 'User with this name is already registered' })
+        return res.status(400).json({ message: 'This user is already registered' })
       }
 
       const hashedPassword = await bcrypt.hash(password, 12)
@@ -39,7 +39,7 @@ router.post(
 
       await user.save()
 
-      res.status(201).json({ message: 'User has been created' })
+      res.status(201).json({ message: 'Created user' })
 
     } catch (e) {
       res.status(500).json({ message: 'Something is wrong, please try again' })
@@ -50,8 +50,8 @@ router.post(
 router.post(
   '/login',
   [
-    check('email', 'Enter correct email').normalizeEmail().isEmail(),
-    check('password', 'Enter your password').exists()
+    check('email', 'Enter the correct email').normalizeEmail().isEmail(),
+    check('password', 'Enter the password').exists()
   ],
   async (req, res) => {
     try {
@@ -60,7 +60,7 @@ router.post(
       if (!errors.isEmpty()) {
         return res.status(400).json({
           errors: errors.array(),
-          message: 'Please enter correct credentials'
+          message: 'Something is wrong, please try again'
         })
       }
 
@@ -69,13 +69,13 @@ router.post(
       const user = await User.findOne({ email })
 
       if (!user) {
-        return res.status(400).json({ message: 'User was not found' })
+        return res.status(400).json({ message: 'User has not been found' })
       }
 
       const isMatch = await bcrypt.compare(password, user.password)
 
       if (!isMatch) {
-        return res.status(400).json({ message: 'Your password is wrong, please try again' })
+        return res.status(400).json({ message: 'Password is wrong, please try again' })
       }
 
       const token = jwt.sign(
@@ -90,6 +90,5 @@ router.post(
       res.status(500).json({ message: 'Something is wrong, please try again' })
     }
   })
-
 
 module.exports = router

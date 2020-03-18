@@ -7,6 +7,7 @@
     "bcryptjs": "^2.4.3",
     "concurrently": "^5.1.0",
     "config": "^3.3.0",
+    "cross-env": "^7.0.2",
     "express": "^4.17.1",
     "express-validator": "^6.4.0",
     "jsonwebtoken": "^8.5.1",
@@ -17,10 +18,12 @@
   },
   "devDependencies": {},
   "scripts": {
-    "start": "node app.js",
+    "start": "cross-env NODE_ENV=production node app.js",
     "server": "nodemon app.js",
     "client": "npm run start --prefix client",
-    "dev": "concurrently \"npm run server\" \"npm run client\""
+    "client:install": "npm install --prefix client",
+    "client:build": "npm run build --prefix client",
+    "dev": "cross-env NODE_ENV=development concurrently \"npm run server\" \"npm run client\""
   },
   "keywords": [
     "mern",

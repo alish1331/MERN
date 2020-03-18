@@ -2,7 +2,7 @@ import React from 'react'
 import { Switch, Route, Redirect } from 'react-router-dom'
 import { LinksPage } from './pages/LinksPage'
 import { CreatePage } from './pages/CreatePage'
-import { DetailsPage } from './pages/DetailsPage'
+import { DetailPage } from './pages/DetailPage'
 import { AuthPage } from './pages/AuthPage'
 
 export const useRoutes = isAuthenticated => {
@@ -18,7 +18,7 @@ export const useRoutes = isAuthenticated => {
         </Route>
 
         <Route path="/detail/:id">
-          <DetailsPage />
+          <DetailPage />
         </Route>
 
         <Redirect to="/create" />

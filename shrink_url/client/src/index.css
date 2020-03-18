@@ -22,3 +22,28 @@ input.yellow-input:focus {
 /* .input-field {
   margin: 5vh;
 } */
+
+/* Setting responsiveness of the page: */
+.container {
+  max-width: 1200px;
+  /* margin: 0px auto;
+  padding: 0px auto; */
+}
+@media (max-width: 1200px){
+ .container {
+   max-width: 970px;
+ }
+}
+
+@media (max-width: 992px) {
+  .container {
+    max-width: 750px;
+  }
+}
+
+@media (max-width: 767px) {
+  .container {
+    max-width: none;
+  }
+}
+ 

@@ -17,7 +17,7 @@ export const AuthPage = () => {
     clearError()
   }, [error, message, clearError])
 
-  //Refresh email and password fileds after logout
+  //Refreshes email and password fileds after logout
   useEffect(() => {
     window.M.updateTextFields()
   }, [])
@@ -42,61 +42,64 @@ export const AuthPage = () => {
   }
 
   return (
-    <div className="row">
-      <div className="col s6 offset-s3">
-        <h1>Shorten the URL</h1>
-        <div className="card blue darken-1">
-          <div className="card-content white-text">
-            <span className="card-title">Authorization</span>
-            <div>
+    <div className="container">
+      <div className="row">
+        <div className="col s12 offset-s0">
+          <h1>Shorten the URL</h1>
+          <div className="card blue darken-1">
+            <div className="card-content white-text">
+              <span className="card-title">Authorization</span>
+              <div>
 
-              <div className="input-field">
-                <input
-                  placeholder="Your email"
-                  id="email"
-                  type="text"
-                  name="email"
-                  className="yellow-input"
-                  value={form.email}
-                  onChange={changeHandler}
-                />
-                <label htmlFor="email">Email</label>
+                <div className="input-field">
+                  <input
+                    placeholder="Your email"
+                    id="email"
+                    type="text"
+                    name="email"
+                    className="yellow-input"
+                    value={form.email}
+                    onChange={changeHandler}
+                  />
+                  <label htmlFor="email">Email</label>
+                </div>
+
+                <div className="input-field">
+                  <input
+                    placeholder="Your password"
+                    id="password"
+                    type="password"
+                    name="password"
+                    className="yellow-input"
+                    value={form.password}
+                    onChange={changeHandler}
+                  />
+                  <label htmlFor="email">Password</label>
+                </div>
+
               </div>
-
-              <div className="input-field">
-                <input
-                  placeholder="Your password"
-                  id="password"
-                  type="password"
-                  name="password"
-                  className="yellow-input"
-                  value={form.password}
-                  onChange={changeHandler}
-                />
-                <label htmlFor="email">Password</label>
-              </div>
-
             </div>
-          </div>
-          <div className="card-action">
-            <button
-              className="btn yellow darken-4"
-              style={{ marginRight: 10 }}
-              disabled={loading}
-              onClick={loginHandler}
-            >
-              Login
+            <div className="card-action">
+              <button
+                className="btn yellow darken-4"
+                style={{ marginRight: 10 }}
+                disabled={loading}
+                onClick={loginHandler}
+              >
+                Login
             </button>
-            <button
-              className="btn grey lighten-1 black-text"
-              onClick={registerHandler}
-              disabled={loading}
-            >
-              Sign Up
+              <button
+                className="btn grey lighten-1 black-text"
+                onClick={registerHandler}
+                disabled={loading}
+              >
+                Sign Up
             </button>
+            </div>
           </div>
         </div>
       </div>
     </div>
+
   )
 }

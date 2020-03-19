@@ -5,6 +5,7 @@ const Link = require('../models/Link')
 const auth = require('../middleware/auth.middleware')
 const router = Router()
 
+//App Routes - Generate new link
 router.post('/generate', auth, async (req, res) => {
   try {
     const baseUrl = config.get('baseUrl')
@@ -32,6 +33,7 @@ router.post('/generate', auth, async (req, res) => {
   }
 })
 
+//App Routes - find
 router.get('/', auth, async (req, res) => {
   try {
     const links = await Link.find({ owner: req.user.userId })
@@ -41,6 +43,7 @@ router.get('/', auth, async (req, res) => {
   }
 })
 
+//App Routes - findById
 router.get('/:id', auth, async (req, res) => {
   try {
     const link = await Link.findById(req.params.id)
@@ -49,5 +52,10 @@ router.get('/:id', auth, async (req, res) => {
     res.status(500).json({ message: 'Что-то пошло не так, попробуйте снова' })
   }
 })
+
+//App Routes - delete
+// router.delete('/remove', (req, res) => 
+//   const link = 
+// )
 
 module.exports = router

@@ -18,21 +18,27 @@ input.yellow-input:focus {
   border-bottom: 1px solid #ffeb3b !important;
   box-shadow: 0 1px 0 0 #ffeb3b !important;
 }
-/* input field margins */
-/* .input-field {
-  margin: 5vh;
-} */
+
+.card .card-action{
+  border-top: none;
+}
+
+span.card-title {
+  /* font-size: calc(0.75em + 1vmin); */
+  text-align: center;
+}
 
 /* Setting responsiveness of the page: */
 .container {
-  max-width: 1200px;
+  max-width: 100%;
   /* margin: 0px auto;
   padding: 0px auto; */
 }
-@media (max-width: 1200px){
- .container {
-   max-width: 970px;
- }
+
+@media (max-width: 1200px) {
+  .container {
+    max-width: 970px;
+  }
 }
 
 @media (max-width: 992px) {
@@ -46,4 +52,22 @@ input.yellow-input:focus {
     max-width: none;
   }
 }
- 
+
+h1 {
+  /* font-size: calc(2.2em + 1vmin); */
+  text-transform: uppercase;
+  text-shadow: 2px 2px rgb(189, 189, 189);
+  font-weight: bold;
+  text-align: center;
+  font-size: calc(28px + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
+  line-height: calc(1.3em + (1.5 - 1.2) * ((100vw - 300px)/(1600 - 300)));
+}
+
+h3 {
+  /* font-size: calc(2.2em + 1vmin); */
+  text-transform: uppercase;
+  text-shadow: 2px 2px rgb(189, 189, 189);
+  /* text-align: center; */
+  font-size: calc(16px + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
+  line-height: calc(1.3em + (1.5 - 1.2) * ((100vw - 300px)/(1600 - 300)));
+}

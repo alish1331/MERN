@@ -9,7 +9,6 @@ export const CreatePage = () => {
   const { request } = useHttp()
   const [link, setLink] = useState('')
 
-  //Refreshes URL links filed after reload
   useEffect(() => {
     window.M.updateTextFields()
   }, [])
@@ -26,31 +25,21 @@ export const CreatePage = () => {
   }
 
   return (
-    <div className="container">
-      <div className="row">
-        <div className="col s12 offset-s0" style={{ paddingTop: '2rem' }}>
-          <div className="input-field">
-            <input
-              placeholder="Link to be shortened"
-              id="link"
-              type="text"
-              value={link}
-              onChange={e => setLink(e.target.value)}
-              onKeyPress={pressHandler}
-            />
-            <label htmlFor="link">Paste your link</label>
-          </div>
+    <div className="row">
+      <h3>Create Short Link</h3>
+      <div className="col s12" style={{ paddingTop: '2rem' }}>
+        <div className="input-field">
+          <input
+            placeholder="Paste your link here"
+            id="link"
+            type="text"
+            value={link}
+            onChange={e => setLink(e.target.value)}
+            onKeyPress={pressHandler}
+          />
+          <label htmlFor="link">Your link:</label>
         </div>
       </div>
     </div>
   )
 }
-
-/* <button
-className = "btn green darken-1"
-onChange = { e => setLink(e.target.value) }
-onClick = { pressHandler }
-  >
-  Shorten 
-  </button>  
-  */

@@ -90,8 +90,8 @@ export const AuthPage = () => {
             </button>
               <button
                 className="btn grey lighten-1 black-text"
-                onClick={registerHandler}
                 disabled={loading}
+                onClick={registerHandler}
               >
                 Sign Up
             </button>

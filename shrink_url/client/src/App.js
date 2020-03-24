@@ -6,6 +6,7 @@ import { AuthContext } from './context/AuthContext'
 import { Navbar } from './components/Navbar'
 import { Loader } from './components/Loader'
 import 'materialize-css'
+import ParticleComponent from './components/ParticleComponent'
 
 function App() {
   const { token, login, logout, userId, ready } = useAuth()
@@ -21,9 +22,21 @@ function App() {
       token, login, logout, userId, isAuthenticated
     }}>
       <Router>
+        <div
+          style={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            width: "100%",
+            height: "100%"
+
+          }}>
+          <ParticleComponent
+            />
         {isAuthenticated && <Navbar />}
         <div className="container">
           {routes}
+          </div>
         </div>
       </Router>
     </AuthContext.Provider>

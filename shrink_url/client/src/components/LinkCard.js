@@ -2,9 +2,11 @@ import React from 'react'
 
 export const LinkCard = ({ link }) => {
   return (
-    <>
-      <h3>Link Details</h3>
-      <div className="col s10" style={{ paddingTop: '2rem' }}>
+    <div className="container">
+      <div className="row">
+      {/* <h3>Link Details</h3> */}
+      <div className="col s12 m12 l12" style={{ paddingTop: '2rem' }}>
+        <div className="card white darken-1" style={{ padding: '1rem' }}>
         <table>
           <tr>
             <th>
@@ -14,7 +16,7 @@ export const LinkCard = ({ link }) => {
           </tr>
           <tr>
             <th>
-              Original:
+              Original link:
             </th>
             <td><a href={link.from} target="_blank" rel="noopener noreferrer">{link.from}</a></td>
           </tr>
@@ -31,7 +33,9 @@ export const LinkCard = ({ link }) => {
             <td><strong>{new Date(link.date).toLocaleDateString()}</strong></td>
           </tr>
         </table>
+        </div>
+        </div>
       </div>
-    </>
+    </div>
   )
 }

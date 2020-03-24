@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import { useHttp } from '../hooks/http.hook'
 import { useMessage } from '../hooks/message.hook'
 import { AuthContext } from '../context/AuthContext'
+// import ParticleComponent from '../components/ParticleComponent'
 
 export const AuthPage = () => {
   const auth = useContext(AuthContext)
@@ -44,9 +45,10 @@ export const AuthPage = () => {
   return (
     <div className="container">
       <div className="row">
-        <div className="col s12 offset-s0">
-          <h1>Shorten the URL</h1>
-          <div className="card blue darken-1">
+        <div className="col s12 m10 l8 offset-m1 offset-l2">
+          <h1>CutLink</h1>
+          <h2>Simplify your links, store & track them</h2>
+          <div className="card teal lighten-1">
             <div className="card-content white-text">
               <span className="card-title">Authorization</span>
               <div>
@@ -100,6 +102,5 @@ export const AuthPage = () => {
         </div>
       </div>
     </div>
-
   )
 }

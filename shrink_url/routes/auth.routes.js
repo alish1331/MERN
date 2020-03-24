@@ -39,9 +39,10 @@ router.post(
 
       await user.save()
 
-      res.status(201).json({ message: 'Created user' })
+      res.status(201).json({ message: 'User has been created' })
 
     } catch (e) {
+      
       res.status(500).json({ message: 'Something is wrong, please try again' })
     }
   })

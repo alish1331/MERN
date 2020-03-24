@@ -1,5 +1,45 @@
 @import "~materialize-css/dist/css/materialize.min.css";
 
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+
+  /* display: flex;
+  min-height: 100%;
+  flex-direction: column; */
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+h1 {
+  color: antiquewhite;
+  text-shadow: 2px 2px rgb(119, 117, 117);
+  font-weight: bold;
+  text-align: center;
+  font-size: calc(28px + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
+  line-height: calc(1.3em + (1.5 - 1.2) * ((100vw - 300px)/(1600 - 300)));
+}
+
+h2 {
+  font-size: calc(0.75em + 1vmin);
+  font-family: "Lucida Console", Monaco, monospace;
+  font-weight: bold;
+  color: antiquewhite;
+  text-align: center;
+  line-height: calc(1.3em + (1.5 - 1.2) * ((100vw - 300px)/(1600 - 300)));
+}
+
+h3 {
+  text-transform: uppercase;
+  text-shadow: 2px 2px rgb(189, 189, 189);
+  font-size: calc(16px + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
+  line-height: calc(1.3em + (1.5 - 1.2) * ((100vw - 300px)/(1600 - 300)));
+}
+
 input.yellow-input {
   border-bottom: 1px solid #fff !important;
   box-shadow: 0 1px 0 0 #fff !important;
@@ -12,6 +52,8 @@ input.yellow-input+label {
 
 input.yellow-input:focus+label {
   color: #ffeb3b !important;
+  font-weight: bold;
+  font-size: 16px;
 }
 
 input.yellow-input:focus {
@@ -19,55 +61,200 @@ input.yellow-input:focus {
   box-shadow: 0 1px 0 0 #ffeb3b !important;
 }
 
-.card .card-action{
+.card .card-action {
   border-top: none;
 }
+
+/* element.style {
+  padding: 1rem;
+} */
 
 span.card-title {
   /* font-size: calc(0.75em + 1vmin); */
   text-align: center;
 }
 
-/* Setting responsiveness of the page: */
 .container {
   max-width: 100%;
-  /* margin: 0px auto;
-  padding: 0px auto; */
 }
 
+.input-field .material-icons {
+  color: #000000;
+}
+
+.material-icons>i>tr {
+  color: rgb(187, 2, 2);
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+  /* position: relative; */
+  /* vertical-align: middle; */
+  padding-top: 0.65em;
+  /* flex-direction: column;
+  align-items: center; */
+}
+
+/* Setting responsiveness of the page 
+(to fit different types of screens): */
 @media (max-width: 1200px) {
   .container {
-    max-width: 970px;
+    display: inline-block;
+    max-width: 1100px;
+    font-size: calc(0.55em + 1vmin);
   }
 }
 
-@media (max-width: 992px) {
+/* @media (max-width: 992px) {
   .container {
-    max-width: 750px;
+    display: inline-block;
+    max-width: 850px;
+    font-size: calc(0.55em + 1vmin);
   }
-}
 
-@media (max-width: 767px) {
-  .container {
+  header,
+  main,
+  footer {
+    padding-left: 0;
+  }
+} */
+
+/* @media 
+only screen and (max-width: 767px), (min-device-width: 768px) and (max-device-width: 1024px) {
+  table, thead, tbody, th, td, tr {
+    display: block;
+  } */
+
+
+  /* .container {
+    display: inline-block;
     max-width: none;
-  }
+    font-size: calc(0.55em + 1vmin);
+  } */
+/* } */
+
+canvas {
+  position: absolute !important;
+  padding: 0;
+  margin: 0;
+  background-color: #616161;
 }
 
-h1 {
-  /* font-size: calc(2.2em + 1vmin); */
-  text-transform: uppercase;
-  text-shadow: 2px 2px rgb(189, 189, 189);
+.nav-wrapper {
+  box-shadow: 5px 5px 5px 0px #000000,
+    inset 4px 4px 15px 0px #000000,
+    5px 5px 15px 5px rgba(0, 0, 0, 0);
+}
+
+/* 
+Generic Styling,
+for Desktops/Laptops */ 
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+/* Zebra striping */
+tr:nth-of-type(odd) {
+  background: #eee;
+}
+
+th {
+  background: #25A69A;
+  color: white;
   font-weight: bold;
-  text-align: center;
-  font-size: calc(28px + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
-  line-height: calc(1.3em + (1.5 - 1.2) * ((100vw - 300px)/(1600 - 300)));
 }
 
-h3 {
-  /* font-size: calc(2.2em + 1vmin); */
-  text-transform: uppercase;
-  text-shadow: 2px 2px rgb(189, 189, 189);
-  /* text-align: center; */
-  font-size: calc(16px + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
-  line-height: calc(1.3em + (1.5 - 1.2) * ((100vw - 300px)/(1600 - 300)));
+td,
+th {
+  padding: 6px;
+  border: 1px solid #ccc;
+  text-align: left;
+}
+
+/* 
+Max width before this PARTICULAR table gets nasty
+This query will take effect for any screen smaller than 760px
+and also iPads specifically.
+*/
+ @media only screen and (max-width: 767px),
+(min-device-width: 768px) and (max-device-width: 1024px) {
+
+  
+  table,
+  thead,
+  tbody,
+  th,
+  td,
+  tr {
+    display: block;
+  }
+
+  /* Hide table headers (but not display: none;, for accessibility) */
+  thead tr {
+    position: relative;
+    top: -9999px;
+    left: -9999px;
+  }
+
+  tr {
+    border: 1px solid #ccc;
+  }
+
+  td {
+    /* Behave  like a "row" */
+    border: none;
+    border-bottom: 1px solid #eee;
+    position: relative;
+    /* padding-left: 50%; */
+  }
+
+  td:before {
+    /* Now like a table header */
+    /* position: absolute; */
+    /* Top/left values mimic padding */
+    top: 5px;
+    left: 1px;
+    width: 45%;
+    padding-right: 10px;
+    white-space: nowrap;
+  }
+
+  /*
+	Label the data
+	*/
+  td:nth-of-type(1):before {
+    content: "#";
+  }
+
+  td:nth-of-type(2):before {
+    content: "Original";
+  }
+
+  td:nth-of-type(3):before {
+    content: "Shortened";
+  }
+
+  td:nth-of-type(4):before {
+    content: "Info";
+  }
+
+  td:nth-of-type(5):before {
+    content: "Action";
+  }
+
+  td:nth-of-type(6):before {
+    content: "Short link";
+  }
+
+  td:nth-of-type(7):before {
+    content: "Original link";
+  }
+
+  td:nth-of-type(8):before {
+    content: "Click count";
+  }
+
+  td:nth-of-type(9):before {
+    content: "Date created";
+  }
 }
